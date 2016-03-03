@@ -1,0 +1,65 @@
+First and foremost, thanks to the devs for a great product, all those who've helped me in my zen journey, and the creators of PHPmyEdit which I used to create the simple database management system included with this add-on.
+
+Secondly, NEVER attempt a mod without first having a backup of BOTH your site AND your database.  This add-on will "touch" both and any errors you make in installation will be little ones if you have backups.
+***************************************************************************************
+DISCLAIMER:
+This add-on has been tested with several templates and layouts but has not been tested on any other version of Zen Cart but 1.3.9h,1.5.0, and 1.5.1.  It has also only been designed for English.
+Your use of this add-on signifies that you are willing to take the risk and have backed up your site prior to starting.
+
+Help for this add-on is available on the forum at http://www.zen-cart.com/forum/showthread.php?t=116680
+***************************************************************************************
+Okay.  Here goes!
+
+The zip file should have contained:
+    1.  A folder named "includes" which represents the inlcudes directory in the root of your store.
+    2.  A folder named "eventz" which holds the files needed to create, modify, and delete events.
+    3.  A file named events.sql which will create a zen_events table in the database
+    4.  A file named events_read_me.txt
+    5.  A file named events_license.txt
+    6.  A file named events_installation_users_guide.txt  -- THIS FILE.
+    
+Installation instructions for Beginner, Upgrade, and Advanced are located below.
+***************************************************************************************    
+Basic/Beginner Installation Instructions:
+If you have done those backups I talked about and are ready to go, follow these steps.
+    1.  FTP the "eventz" folder to the root of your store.  You can rename the folder if you wish. Just rememeber that you will use the new folder name when accessing your events data.
+    2.  Open the "includes" folder for this add-on and search through the sub-folders to find the two folders named CUSTOM.  They should be includes/modules/sideboxes/CUSTOM and includes/templates/CUSTOM.
+    3.  Rename these folders (CUSTOM) to the name of your override folder(s).  If you are using classic or template_default, you need to really think about using the override system to create a custom template.  Using classic or template-default will cause this add-on to be removed with any update. 
+    4.  FTP the "includes" folder with the renamed sub-folders to the root of your site.
+    5.  Open the "YourAdmin" of your site, go to the Tools menu, click on Install SQL Patches, browse for the events.sql file on your computer, and then click upload to let Zen Cart install the events table to the database.
+       NOTE:  At this point, the Scheduled Events add-on is fully functional.  However, nothing will show on the Events page unless something is entered in the database's events table.  You can check the functionality of the add-on without entering any events.  A "Scheduled Events" link should now be at the top of the Information sidebox.  Clicking on that link should bring up an events page with a back button on it.  Clicking on the back button should take you to the home page.  If these things don't happen, something is wrong with the installation.  You will need to go back through the steps to make sure everything was done by the instructions.  If something else in your site is suddenly different, you will need to check if any other add-on "touched" the files used with this one.
+    6.  Sometimes the Install SQL Patches will add your database's prefix so make sure you don't have #####_zen_events as a table in your database. If you do, rename the table to zen_events.
+    7.  Once the functionality is tested and working, FTP the eventz folder to the root of your site.  Once uploaded, you should be able to reach it by entering http://www.yoursite.com/eventz in your browser's address bar.
+    8.  Go to the eventz folder and the database management file will automatically come up in the browser.  The first time it appears, there will be no events listed.  Just click the ADD button to add an event.  A form will come up with suggestions for input for each category.  Blocks on the form that are left empty will NOT appear on the Scheduled Events page.  All data is entered into the zen_events table of the database.
+    9.  For the map info, go to google maps and find the address of the event_location.  From there, click on the icon that looks like a link of chain.  You should see a check box for a Short URL. Click on that box and copy the Short URL to your database.  When a user clicks on the Scheduled Events Driving Directions link, the google map will appear in a new window.
+    10.  If you see a listing in the Information Box of "Retail Outlets" and you are NOT using our Retail Outlets Mod, you will need to edit the information.php file in the includes/modules/sideboxes/CUSTOM directory.
+Enjoy!
+***************************************************************************************
+Upgrade Instructions:
+If you have used this mod in the past (version 1.3.8, there are several changes with the database manipulation and PHP compliance that require the removal of previous files and the database table.
+		1.  Even more important with an upgrade, BACKUP - BACKUP - BACKUP
+		2.	Make a copy of any existing events as the new files and database are NOT compatible with the older version.
+		3.	Delete the folder originally named "eventz" (you may have renamed it to something different during original installation.
+		4.  Rename the zen_events table in your database to events_old or something similar until you are sure that you have placed existing events into the new system.
+		5.  If you have other customizations to any of the files in the included "includes" directory, you will need to retain those for comparison with some program like WinMerge.  Don't remove any of these files (step 6) until you are sure you have not modified them beyond the modificatons by the scheduled events mod.
+		6.  Remove the mod files located in the extra_datafiles, languages, modules, and templates folders located in yoursite/includes directory after reviewing them (step 5).
+		7.  If you have modified any files used by this mod (see step 5), make the changes to the corresponding file(s) in the new version.
+		8.	Proceed to load the files as a Basic/Beginner Install
+***************************************************************************************
+Advanced User Instructions:
+If you are thoroughly familiar with the steps needed to update and insert data into MySQL databases, follow these steps.
+    1.  FTP the "eventz" folder to the root of your store.  You can rename the folder if you wish. Just rememeber that you will use the new folder name when accessing your events data.
+    2.  Open the "includes" folder and search through the sub-folders to find the three folders named CUSTOM.  They should be includes/languages/CUSTOM, includes/modules/sideboxes/CUSTOM, and includes/templates/CUSTOM.
+    2.  Rename these folders (CUSTOM) to the name of your override folder(s).
+    3.  FTP the "includes" folder with the renamed sub-folders to the root of your site.
+    4.  Open the admin of your site, go to the Tools menu, click on Install SQL Patches, browse for the events.sql file on your computer, and then click upload to let Zen Cart install the zen_ events table to the database.
+At this point, the Scheduled Events add-on is fully functional.  However, nothing will show on the Events page unless something is entered in the database's zen_events table.  You can check the functionality of the add-on without entering any events.
+
+Note that dates are in the yyyy-mm-dd format when entered.
+
+You may still want to FTP the "eventz" folder to the site's root in case some not-so-knowledgeable individual will be adding events as well.  Setting the browser to http://www.yoursite.com/eventz will open the form to enter/edit the events.   You can rename the folder if you like.  Just make sure to point the browser to the new folder.  ;-)
+If you are on Apache, you can always create an .htaccess file to include password protection.
+Enjoy!
+***************************************************************************************
+Again, help for this add-on is available on the forum at http://www.zen-cart.com/forum/showthread.php?t=116680
+Should you have any coffee money left over after treating the devs and wish to "send a little joe" my way, just PM me and I will give you an email address for PayPal.
