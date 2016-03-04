@@ -6,7 +6,11 @@
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
  * @version $Id: events_filenames.php 3001 2012-01-18 11:45:06Z dbltoe $
  */
+ 
+define('TABLE_EVENTS', DB_PREFIX . 'events');
 
-	// information box text in sideboxes/information.php for Scheduled Event
-	define('BOX_INFORMATION_EVENTS', 'Scheduled Events');
-?>
+// information box text in sideboxes/information.php for Scheduled Event
+define('BOX_INFORMATION_EVENTS', 'Scheduled Events');
+
+define('FILENAME_DEFINE_EVENTS', 'define_events');
+define('FILENAME_EVENTS', 'events');
